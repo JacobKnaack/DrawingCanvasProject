@@ -86,7 +86,7 @@
 
           <div class="imageUpload">
             <label><img src="styles/assets/Image_Image.png"></label></br>
-            <input type="file" id="image" name="image"/>
+            <input type="file" id="image" name="image" accept="image/*" onchange="addImage(this)"/>
           </div>
 
         </div>
@@ -101,6 +101,7 @@
 <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
 <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
 
+<script src="scripts/addImage.js"></script>
 <script src="scripts/select.js"></script>
 <script src="scripts/draw.js"></script>
 <script src="scripts/animate.js"></script>
