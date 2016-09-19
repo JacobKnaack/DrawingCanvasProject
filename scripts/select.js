@@ -1,8 +1,8 @@
 //Shape selecting functions*****************
-var isCircleSelected;
-var isLineSelected;
-var isRectSelected;
-var isFreeSelected;
+var isCircleSelected = null;
+var isLineSelected = null;
+var isRectSelected = null;
+var isFreeSelected = null;
 
 function eventClear() {
   $('#artboard').unbind('mouseup');
@@ -67,4 +67,24 @@ function selectColor(i) {
 function clearCanvas() {
   stage.removeAllChildren();
   stage.update();
+}
+//********************************************
+
+//background upload function******************
+var imageSelect = document.getElementById('image');
+  imageSelect.addEventListener('change', imageUpload, false);//might need to remove event listener in eventClear()
+var canvas = document.getElementById('artboard');
+var ctx = canvas.getContext('2d');
+
+
+function imageUpload(e) { //work in progress
+  var reader = new fileReader();
+  reader.onload = function(event) {
+    var img = new image();
+    img.onload = function() {
+      ctx.drawImage(img, 0, 0);
+    }
+    img.src = event.target.result;
+  }
+  reader.readAsDataURL(e.target, files[0]);
 }

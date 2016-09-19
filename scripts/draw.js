@@ -1,11 +1,13 @@
 //creates our canvas where shapes can be made as well
 //as sets up our variables to beused across functions
 var stage = new createjs.Stage('artboard');
-var message = new createjs.Text("Select a shape!", '36px Arial', '#777777');
-  message.x = 250;
-  message.y = 200;
-  stage.addChild(message);
-  stage.update();
+var message = new createjs.Text('Select a shape! Or upload an image!', '36px Futura', '#777777');
+message.lineWidth = 250;
+message.textAlign = 'center';
+message.x = 375;
+message.y = 200;
+stage.addChild(message);
+stage.update();
 var circle;
 var line;
 var freeLine;
@@ -19,7 +21,7 @@ $('.shapeSelector').click(function() {
     stage.removeChild(message);
   }
   draw();
-})
+});
 //***********************************
 
 //Circle Functions*******************
@@ -73,7 +75,6 @@ function freeMouseDown(event) {
   start = new createjs.Point(stage.mouseX, stage.mouseY);
   startMid = start.clone();
   stage.addEventListener("stagemousemove", freeMouseMove);
-  console.log('here1');
 }
 
 function freeMouseMove(event) {
@@ -90,7 +91,6 @@ function freeMouseMove(event) {
   startMid.y = mid.y;
 
   stage.update();
-  console.log(start, startMid, mid);
 }
 
 function freeMouseUp(event) {
